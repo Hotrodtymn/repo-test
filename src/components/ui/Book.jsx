@@ -1,23 +1,22 @@
-import react from "react";
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar, faStarHalfAlt } from "@fortawesome/free-solid-svg-icons";
 
-const Book = () => {
+const Book = ({ book }) => {
   return (
     <div className="book">
       <a href="/">
         <figure className="book__img--wrapper">
-          <img
-            src="https://covers.openlibrary.org/b/id/8091016-L.jpg"
-            alt="Atomic Habits book cover"
-            className="book__img"
-          />
+          <img src={book.url} alt={book.title} className="book__img" />
         </figure>
       </a>
+
       <div className="book__title">
         <a href="/" className="book__title--link">
-          Atomic Habits
+          {book.title}
         </a>
       </div>
+
       <div className="book__ratings">
         <FontAwesomeIcon icon={faStar} />
         <FontAwesomeIcon icon={faStar} />
@@ -25,9 +24,16 @@ const Book = () => {
         <FontAwesomeIcon icon={faStar} />
         <FontAwesomeIcon icon={faStarHalfAlt} />
       </div>
+
       <div className="book__price">
-        <span className="book__price--normal">$15.00</span>
-        $10.00
+        {book.salePrice ? (
+          <>
+            <span className="book__price--normal">${book.originalPrice}</span>$
+            {book.salePrice}
+          </>
+        ) : (
+          `$${book.originalPrice}`
+        )}
       </div>
     </div>
   );
