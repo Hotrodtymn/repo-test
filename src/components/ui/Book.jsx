@@ -9,14 +9,14 @@ const Book = ({ book }) => {
 
   return (
     <div className="book">
-      <Link to={/book$book.id}>
+      <Link to={/books${book.id}}>
         <figure className="book__img--wrapper">
           <img src={book.url} alt={book.title} className="book__img" />
         </figure>
       </Link>
 
       <div className="book__title">
-        <Link to={/book$book.id} className="book__title--link">
+        <Link to={/books${book.id}} className="book__title--link">
           {book.title}
         </Link>
       </div>
