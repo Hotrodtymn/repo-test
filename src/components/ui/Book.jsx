@@ -16,7 +16,7 @@ const Book = ({ book }) => {
       </Link>
 
       <div className="book__title">
-        <Link to="/" className="book__title--link">
+        <Link to="book" className="book__title--link">
           {book.title}
         </Link>
       </div>
