@@ -24,13 +24,13 @@ const Footer = () => {
               Home
             </Link>
 
-            <a href="#highlights" className="footer__link">
+            <Link to="#highlights" className="footer__link">
               About
             </Link>
 
             <Link to="/books" className="footer__link">
               Books
-            </aLink>
+            </Link>
 
             <Link to="/cart" className="footer__link">
               Cart
