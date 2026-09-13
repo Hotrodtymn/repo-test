@@ -1,7 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faStarHalfAlt } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { Link } from "react-router-dom";
 
 const Book = ({ book }) => {
   const fullStars = Math.floor(book.rating);
@@ -9,11 +9,11 @@ const Book = ({ book }) => {
 
   return (
     <div className="book">
-      <link to="/">
+      <Link to="/">
         <figure className="book__img--wrapper">
           <img src={book.url} alt={book.title} className="book__img" />
         </figure>
-      </link>
+      </Link>
 
       <div className="book__title">
         <Link to="/" className="book__title--link">
