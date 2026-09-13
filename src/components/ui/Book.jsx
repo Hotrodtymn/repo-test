@@ -8,11 +8,11 @@ const Book = ({ book }) => {
 
   return (
     <div className="book">
-      <a href="/">
+      <link to="/">
         <figure className="book__img--wrapper">
           <img src={book.url} alt={book.title} className="book__img" />
         </figure>
-      </a>
+      </link>
 
       <div className="book__title">
         <a href="/" className="book__title--link">
