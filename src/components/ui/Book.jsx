@@ -3,6 +3,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faStarHalfAlt } from "@fortawesome/free-solid-svg-icons";
 
 const Book = ({ book }) => {
+  const fullStars = Math.floor(book.rating);
+  const hasHalfStar = !Number.isInteger(book.rating);
+
   return (
     <div className="book">
       <a href="/">
@@ -18,21 +21,25 @@ const Book = ({ book }) => {
       </div>
 
       <div className="book__ratings">
-        <FontAwesomeIcon icon={faStar} />
-        <FontAwesomeIcon icon={faStar} />
-        <FontAwesomeIcon icon={faStar} />
-        <FontAwesomeIcon icon={faStar} />
-        <FontAwesomeIcon icon={faStarHalfAlt} />
+        {new Array(fullStars).fill(0).map((_, index) => (
+          <FontAwesomeIcon icon={faStar} key={index} />
+        ))}
+
+        {hasHalfStar && (
+          <FontAwesomeIcon icon={faStarHalfAlt} key="half-star" />
+        )}
       </div>
 
       <div className="book__price">
         {book.salePrice ? (
           <>
-            <span className="book__price--normal">${book.originalPrice}</span>$
-            {book.salePrice}
+            <span className="book__price--normal">
+              ${book.originalPrice.toFixed(2)}
+            </span>{" "}
+            ${book.salePrice.toFixed(2)}
           </>
         ) : (
-          `$${book.originalPrice}`
+          <>${book.originalPrice.toFixed(2)}</>
         )}
       </div>
     </div>
