@@ -1,6 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faStarHalfAlt } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 const Book = ({ book }) => {
   const fullStars = Math.floor(book.rating);
@@ -15,9 +16,9 @@ const Book = ({ book }) => {
       </link>
 
       <div className="book__title">
-        <a href="/" className="book__title--link">
+        <Link to="/" className="book__title--link">
           {book.title}
-        </a>
+        </Link>
       </div>
 
       <div className="book__ratings">
